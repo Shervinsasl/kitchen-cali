@@ -16,10 +16,15 @@
       "static/chunks/main-app.js",
       "static/chunks/app/(site)/[county]/[city]/page.js"
     ],
-    "/(site)/[county]/[city]/[slug]/page": [
+    "/(site)/layout": [
       "static/chunks/webpack.js",
       "static/chunks/main-app.js",
-      "static/chunks/app/(site)/[county]/[city]/[slug]/page.js"
+      "static/chunks/app/(site)/layout.js"
+    ],
+    "/(site)/for-caterers/page": [
+      "static/chunks/webpack.js",
+      "static/chunks/main-app.js",
+      "static/chunks/app/(site)/for-caterers/page.js"
     ]
   }
 }

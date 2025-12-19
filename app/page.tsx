@@ -1,8 +1,11 @@
 "use client";
 
 import { motion } from "framer-motion";
+import Link from "next/link";
 import IntroGate from "../components/IntroGate";
 import LocationPicker from "../components/LocationPicker";
+import SiteFooter from "../components/SiteFooter";
+import SiteHeader from "../components/SiteHeader";
 
 const headlineVariants = {
   hidden: { opacity: 0, y: 10 },
@@ -60,19 +63,7 @@ export default function Page() {
           />
         </div>
 
-        <header className="relative w-full px-6 pt-8 md:px-12 lg:px-16">
-          <div className="grid grid-cols-3 items-center">
-            <div className="justify-self-start -mt-1 pl-1 text-sm uppercase tracking-[0.24em] text-deep-green/80">
-              Kitchen Cali
-            </div>
-            <div className="justify-self-center" />
-            <div className="justify-self-end">
-              <div className="rounded-full bg-white/50 px-3 py-1 text-xs text-deep-green/70 shadow-soft backdrop-blur">
-                California • Catering Directory
-              </div>
-            </div>
-          </div>
-        </header>
+        <SiteHeader />
 
         <section className="relative left-1/2 right-1/2 w-screen -ml-[50vw] -mr-[50vw]">
           <div className="mx-auto flex min-h-[calc(100vh-140px)] w-full max-w-5xl flex-col items-center justify-center px-6 text-center">
@@ -103,10 +94,21 @@ export default function Page() {
               <div className="absolute left-[26%] top-[18%] flex h-[58%] w-[48%] items-center justify-center px-4 sm:px-6">
                 <LocationPicker />
               </div>
+              </div>
             </div>
           </div>
+
+          <div className="mt-8 text-center">
+            <p className="text-xs text-deep-green/60">Own a catering business?</p>
+            <Link
+              href="/for-caterers"
+              className="text-xs font-medium text-deep-green/70 hover:text-deep-green"
+            >
+              List your catering service
+            </Link>
           </div>
         </section>
+        <SiteFooter />
       </main>
     </IntroGate>
   );

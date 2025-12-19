@@ -1,0 +1,54 @@
+{
+  "type": "Topology",
+  "objects": {
+    "counties": {
+      "type": "GeometryCollection",
+      "geometries": [
+        {
+          "type": "Polygon",
+          "properties": { "NAME": "Los Angeles" },
+          "arcs": [[0]]
+        },
+        {
+          "type": "Polygon",
+          "properties": { "NAME": "Orange" },
+          "arcs": [[1]]
+        },
+        {
+          "type": "Polygon",
+          "properties": { "NAME": "San Diego" },
+          "arcs": [[2]]
+        }
+      ]
+    }
+  },
+  "arcs": [
+    [
+      [-118.9, 33.7],
+      [-117.6, 33.7],
+      [-117.6, 34.8],
+      [-118.9, 34.8],
+      [-118.9, 33.7]
+    ],
+    [
+      [-117.9, 33.4],
+      [-117.3, 33.4],
+      [-117.3, 34.1],
+      [-117.9, 34.1],
+      [-117.9, 33.4]
+    ],
+    [
+      [-117.5, 32.5],
+      [-116.7, 32.5],
+      [-116.7, 33.4],
+      [-117.5, 33.4],
+      [-117.5, 32.5]
+    ]
+  ],
+  "transform": {
+    "scale": [0.5, 0.5],
+    "translate": [-125, 32]
+  }
+}
+
+

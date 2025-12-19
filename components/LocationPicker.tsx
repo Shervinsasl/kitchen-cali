@@ -1,7 +1,9 @@
 "use client";
 
 import { useMemo, useState } from "react";
+import { useRouter } from "next/navigation";
 import { AnimatePresence, motion } from "framer-motion";
+import { slugify } from "../lib/slugify";
 
 type County = {
   name: string;
@@ -144,6 +146,7 @@ const counties: County[] = [
 const transition = { duration: 0.28, ease: "easeOut" };
 
 export default function LocationPicker() {
+  const router = useRouter();
   const [selectedCounty, setSelectedCounty] = useState<County | null>(null);
   const [selectedCity, setSelectedCity] = useState<string | null>(null);
 
@@ -196,7 +199,13 @@ export default function LocationPicker() {
                     <button
                       key={city}
                       type="button"
-                      onClick={() => setSelectedCity(city)}
+                      onClick={() => {
+                        if (!selectedCounty) return;
+                        setSelectedCity(city);
+                        router.push(
+                          `/${slugify(selectedCounty.name)}/${slugify(city)}`
+                        );
+                      }}
                       className={`flex w-full items-center justify-between rounded-2xl px-4 py-2 text-sm font-medium text-deep-green/80 transition ${
                         isSelected
                           ? "bg-deep-green/12 text-deep-green shadow-soft"

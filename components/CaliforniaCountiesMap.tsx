@@ -9,7 +9,7 @@ import {
 } from "react";
 import { ComposableMap, Geographies, Geography } from "react-simple-maps";
 import { feature } from "topojson-client";
-import type { FeatureCollection, Geometry } from "geojson";
+import type { Feature, FeatureCollection, Geometry } from "geojson";
 
 type TooltipPosition = {
   x: number;
@@ -72,7 +72,13 @@ export default function CaliforniaCountiesMap({
           if (!objects.counties) {
             throw new Error("Expected objects.counties in Topology");
           }
-          fc = feature(topo, objects.counties) as FeatureCollection<Geometry>;
+          const topoFeature = feature(topo, objects.counties) as
+            | Feature<Geometry>
+            | FeatureCollection<Geometry>;
+          if (topoFeature.type !== "FeatureCollection") {
+            throw new Error("Expected FeatureCollection from Topology");
+          }
+          fc = topoFeature;
         } else if (data.type === "FeatureCollection") {
           fc = data as FeatureCollection<Geometry>;
         } else {
@@ -284,5 +290,4 @@ export default function CaliforniaCountiesMap({
     </div>
   );
 }
-
 

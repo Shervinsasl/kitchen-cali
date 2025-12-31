@@ -155,6 +155,8 @@ export default function LocationPicker() {
     [selectedCounty]
   );
 
+  const selectedCountyName = selectedCounty?.name ?? null;
+
   const title = selectedCounty ? "Great choice. Now choose a city" : "Choose your county";
   const subtitle = selectedCounty
     ? `Showing cities in ${selectedCounty.name}`
@@ -233,7 +235,7 @@ export default function LocationPicker() {
               className="kc-scroll flex max-h-[300px] w-full flex-col gap-2 overflow-y-auto pr-1 sm:max-h-[360px]"
             >
               {list.map((countyName) => {
-                const isSelected = selectedCounty?.name === countyName;
+                const isSelected = selectedCountyName === countyName;
                 return (
                   <button
                     key={countyName}

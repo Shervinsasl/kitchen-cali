@@ -1,5 +1,0 @@
-{
-  "/(site)/for-caterers/page": "app/(site)/for-caterers/page.js",
-  "/(site)/[county]/[city]/page": "app/(site)/[county]/[city]/page.js",
-  "/page": "app/page.js"
-}
